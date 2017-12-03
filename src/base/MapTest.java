@@ -39,7 +39,7 @@ public class MapTest {
 			System.out.println(map.get(str));
 		}
 		System.out.println("foreach by keySet end ");
-	} 
+	}
 	
 	@Test
 	/**
