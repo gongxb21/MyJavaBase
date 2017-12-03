@@ -48,7 +48,7 @@ public class MapTest {
 	 */
 	public void forEachByEntryset() {
 		System.out.println(" for each by entrySet start");
-		Set<Map.Entry<String, String>> set=map.entrySet();
+		Set<Map.Entry<String, String>> set=map.entrySet(); 
 		for(Map.Entry<String, String> obj:set) {
 			System.out.println(obj.getValue());
 		}
