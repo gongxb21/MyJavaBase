@@ -9,7 +9,6 @@ import java.net.Socket;
 
 /**
  * @author gongxb
- *
  * 2018Äê1ÔÂ27ÈÕ
  */
 public class ToUpperTcpServer {
