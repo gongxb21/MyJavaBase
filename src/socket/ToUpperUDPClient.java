@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 /**
  * @author gongxb
  *
- * 2018年1月27日 
+ * 2018年1月27日
  */
 public class ToUpperUDPClient {
 	private DatagramSocket clientSocket;
