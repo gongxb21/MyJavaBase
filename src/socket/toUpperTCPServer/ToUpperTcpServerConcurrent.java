@@ -25,8 +25,8 @@ public class ToUpperTcpServerConcurrent {
 		try {
 			InetAddress address = InetAddress.getByName(ip);
 			serverSocket = new ServerSocket(port, 5, address);
-			StringBuilder builder = new StringBuilder();
 			while (true) {
+				StringBuilder builder = new StringBuilder();
 				Socket clientSocket = serverSocket.accept();
 
 				// ¿ªÆôÏß³Ì³Ø
@@ -35,7 +35,7 @@ public class ToUpperTcpServerConcurrent {
 					@Override
 					public void run() {
 						try {
-							Thread.sleep(1000);
+							Thread.sleep(500);
 						} catch (InterruptedException e1) {
 							e1.printStackTrace();
 						}
