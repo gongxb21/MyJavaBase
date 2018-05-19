@@ -10,7 +10,7 @@ import org.junit.Test;
 
 /**
  * @author gongxb
- * @date 2018-1-25  ÐÂ½¨ 
+ * @date 2018-1-25  ï¿½Â½ï¿½ 
  */
 public class IOtest {
 	
@@ -72,7 +72,7 @@ public class IOtest {
 		MyBufferedWriter mbw=new MyBufferedWriter();
 		mbw.buffferWriter();
 	}
-	
+
 	@Test
 	public void interfaceTest() throws IOException{
 		InterfaceTest it=new InterfaceTest();

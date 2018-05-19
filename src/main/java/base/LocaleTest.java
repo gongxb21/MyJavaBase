@@ -2,19 +2,18 @@ package base;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-
 import org.junit.Test;
 
 /**
  * 
  * @author gongxb
  *
- * 2017Äê12ÔÂ10ÈÕ
+ * 2017ï¿½ï¿½12ï¿½ï¿½10ï¿½ï¿½
  */
 public class LocaleTest {
 	public static Locale loc;
 	/**
-	 * µÃµ½Ä¬ÈÏµÄÓïÑÔ»·¾³
+	 * ï¿½Ãµï¿½Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½
 	 * void
 	 */
 	@Test
@@ -23,7 +22,7 @@ public class LocaleTest {
 		System.out.println(loc);
 	}
 	/**
-	 * Êý×ÖµÄ×ª»»
+	 * ï¿½ï¿½ï¿½Öµï¿½×ªï¿½ï¿½
 	 * 
 	 * void
 	 */
