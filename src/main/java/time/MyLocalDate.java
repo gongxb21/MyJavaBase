@@ -15,7 +15,7 @@ import java.util.Locale;
  * @desc
  * @return
  */
-public class LocalTime {
+public class MyLocalDate {
     public static void main(String[] args) {
         LocalDate today=LocalDate.now();
         System.out.println("today="+today);
