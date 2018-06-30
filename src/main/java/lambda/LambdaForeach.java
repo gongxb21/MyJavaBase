@@ -1,6 +1,7 @@
 package lambda;
 
 import com.sun.org.apache.xml.internal.security.Init;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
@@ -17,10 +18,19 @@ public class LambdaForeach {
     Map<String,String> map=new HashMap<String,String>();
     Set<String> set=new HashSet();
 
+    @Before
+    public void init(){
+        initSet();
+        initList();
+        initMap();
+    }
+
     public void initList(){
         list.add("apple");
         list.add("banana");
         list.add("peach");
+        list.add("abc");
+        list.add("bac");
 
     }
 
@@ -38,9 +48,6 @@ public class LambdaForeach {
 
     @Test
    public void testForeach(){
-        initList();
-        initMap();
-        initSet();
 
         list.forEach(n-> System.out.println(n));
         System.out.println("+++++++++++++++++++++");
@@ -48,4 +55,5 @@ public class LambdaForeach {
         System.out.println("+++++++++++++++++++++");
         set.forEach(n-> System.out.println(n));
    }
+
 }

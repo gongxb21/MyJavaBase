@@ -14,11 +14,11 @@ import java.util.List;
 public class LambdaReduce {
 
     @Test
-    public void testReduce(){
-        List<Integer> list = Arrays.asList(100,200,300,400,500,600);
-        double total=0;
+    public void testReduce() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
+        double total = 0;
 
-       total= list.stream().map(num->num*1.1).reduce((sum,num)->sum+num).get();
+        total = list.stream().map(num -> num * 1.1).reduce((sum, num2) -> sum + num2).get();
         System.out.println(total);
     }
 }
