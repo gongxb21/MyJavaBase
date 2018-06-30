@@ -3,6 +3,7 @@ package stream;
 import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.notification.StoppedByUserException;
 import reflection.Person;
 
 import java.util.ArrayList;
@@ -16,10 +17,12 @@ import java.util.List;
  * @return
  */
 public class Stream8 {
-    List<Person> persons=new ArrayList<>();
-    static class Person{
+    List<Person> persons = new ArrayList<>();
+
+    static class Person {
         String name;
         int age;
+
         public Person(String name, int age) {
             this.name = name;
             this.age = age;
@@ -34,67 +37,65 @@ public class Stream8 {
     }
 
     @Before
-    public void init(){
-         persons =Arrays.asList(
-                        new Person("Max", 18),
-                        new Person("Peter", 24),
-                        new Person("Pamela", 23),
-                        new Person("David", 12));
+    public void init() {
+        persons = Arrays.asList(
+                new Person("Max", 18),
+                new Person("Peter", 24),
+                new Person("Pamela", 23),
+                new Person("David", 12));
     }
 
 
     @Test
-    public void test1(){
+    public void test1() {
         persons.stream()
-                .reduce((p1,p2)->p1.age>p2.age?p1:p2)
+                .reduce((p1, p2) -> p1.age > p2.age ? p1 : p2)
                 .ifPresent(System.out::println);
     }
 
     @Test
-    public void test2(){
-       Person result= persons.stream()
-                .reduce(new Person("",0),(p1,p2)->
+    public void test2() {
+        Person result = persons.stream()
+                .reduce(new Person("", 0), (p1, p2) ->
                 {
-                    p1.age+=p2.age;
-                    p1.name+=p2.name;
+                    p1.age += p2.age;
+                    p1.name += p2.name;
                     return p1;
                 });
         System.out.format("name=%s; age=%s", result.name, result.age);
     }
 
     @Test
-    public void test3(){
-      Integer i=  persons.stream()
-                .reduce(0,(sum,p)->{
-                    return sum+=p.age;
-                }, (sum1, sum2) -> {
-                    return sum1 + sum2;
-                });
+    public void test3() {
+        Integer i = persons.stream()
+                .reduce(0, (sum, p) -> sum += p.age
+                        , (sum1, sum2) -> sum1 + sum2
+                );
         System.out.println(i);
     }
 
 
     @Test
-    public void test4(){
-        Integer ageNum=persons.stream()
-                .reduce(0,(sum,p)->sum+p.age,(sum1,sum2)->sum1+sum2);
+    public void test4() {
+        Integer ageNum = persons.stream()
+                .reduce(0, (sum, p) -> sum + p.age, (sum1, sum2) -> sum1 + sum2);
         System.out.println(ageNum);
     }
 
     @Test
-    public void test5(){
-       Integer ageSum= persons.parallelStream()
-                .reduce(0,(sum,p)->{
-                    return sum+p.age;
-                },(sum,sum2)->{
-                    return sum+sum2;
+    public void test5() {
+        Integer ageSum = persons.parallelStream()
+                .reduce(0, (sum, p) -> {
+                    return sum + p.age;
+                }, (sum, sum2) -> {
+                    return sum + sum2;
                 });
 
         System.out.println(ageSum);
     }
 
     @Test
-    public void test6(){
+    public void test6() {
         Integer ageSum = persons
                 .parallelStream()
                 .reduce(0,
@@ -111,7 +112,6 @@ public class Stream8 {
 
         System.out.println(ageSum);
     }
-
 
 
 }

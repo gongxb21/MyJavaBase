@@ -23,7 +23,7 @@ public class Stream9 {
         System.out.println(Arrays.toString(randoms));
         System.out.println("=============");
         int[] nums=IntStream.iterate(1,n->n*2)
-                .limit(11)
+                .limit(3)
                 .toArray();
         System.out.println(Arrays.toString(nums));
     }
