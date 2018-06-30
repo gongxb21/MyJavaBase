@@ -10,54 +10,60 @@ import java.util.function.Supplier;
  * @return
  */
 public class Optional2 {
-    static class Outer{
-        Nested nested=new Nested();
+
+    static class Outer {
+        Nested nested = new Nested();
 
         public Nested getNested() {
             return nested;
         }
     }
-    static  class Nested{
-        Inner inner=new Inner();
-        public Inner getInner(){
+
+    static class Nested {
+        Inner inner = new Inner();
+
+        public Inner getInner() {
             return inner;
         }
     }
-    static class Inner{
-        String str="hello";
-        public String getStr(){
+
+    static class Inner {
+        String str = "hello";
+
+        public String getStr() {
             return str;
         }
     }
 
-    public static void test1(){
+    public static void test1() {
         Optional.of(new Outer())
-                .flatMap(o->Optional.ofNullable(o.nested))
-                .flatMap(n->Optional.ofNullable(n.inner))
-                .flatMap(i->Optional.ofNullable(i.str))
-                .ifPresent(s-> System.out.println(s));
+                .flatMap(o -> Optional.ofNullable(o.nested))
+                .flatMap(n -> Optional.ofNullable(n.inner))
+                .flatMap(i -> Optional.ofNullable(i.str))
+                .ifPresent(s -> System.out.println(s));
     }
 
 
-    public static void test2(){
+    public static void test2() {
         Optional.of(new Outer())
-                .map(Outer ::getNested)
+                .map(Outer::getNested)
                 .map(Nested::getInner)
                 .map(Inner::getStr)
                 .ifPresent(System.out::println);
     }
 
-    public static void test3(){
-        Outer out=new Outer();
-        resolve(()->out.getNested().getInner().getStr())
+    public static void test3() {
+        Outer out = new Outer();
+        resolve(() -> out.getNested().getInner().getStr())
                 .ifPresent(System.out::println);
 
     }
-    public static <T> Optional<T> resolve(Supplier<T> resolver){
-        try{
-            T result=resolver.get();
+
+    public static <T> Optional<T> resolve(Supplier<T> resolver) {
+        try {
+            T result = resolver.get();
             return Optional.ofNullable(result);
-        }catch (Exception e){
+        } catch (Exception e) {
             return Optional.empty();
         }
     }

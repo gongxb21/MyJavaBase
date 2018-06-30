@@ -55,7 +55,7 @@ public class Stream1 {
         //counting
 
         long  count=list.stream()
-                .filter(s->s.startsWith("c"))
+                .filter(s->s.startsWith("d"))
                 .count();
         System.out.println(count);
         System.out.println("====4=====");

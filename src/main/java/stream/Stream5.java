@@ -18,7 +18,7 @@ public class Stream5 {
     public void test1(){
         int[] ints={1,3,5,6,9,12};
         Arrays.stream(ints)
-                .average()
+                .max()
                 .ifPresent(System.out::println);
     }
 

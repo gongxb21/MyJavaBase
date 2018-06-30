@@ -36,7 +36,7 @@ public class Stream4 {
     public void test2(){
         list.stream()
                 .map(s->s.toUpperCase())
-                .filter(s->s.startsWith("A"))
+                .filter(s->s.contains("A"))
                 .forEach(System.out::println);
     }
 
@@ -52,18 +52,14 @@ public class Stream4 {
     public void test4(){
         list.stream()
                 .sorted((s1,s2)->s1.compareTo(s2))
-                .filter(s->{
-                    return s.toLowerCase().startsWith("a");
-                })
+                .filter(s-> s.toLowerCase().startsWith("a"))
                 .forEach(System.out::println);
     }
 
     @Test
     public void test5(){
         list.stream()
-                .filter(s->{
-                    return s.toLowerCase().startsWith("b");
-                })
+                .filter(s-> s.toLowerCase().startsWith("b"))
                 .sorted((a,b)->a.compareTo(b))
                 .map(s->s.toUpperCase())
                 .forEach(System.out::println);

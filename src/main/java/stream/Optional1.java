@@ -16,8 +16,11 @@ public class Optional1 {
         Optional<String> optional =Optional.of("helloWorld");
         System.out.println(optional.isPresent());
         optional.getClass();
-        optional.equals("hahah");
-        optional.orElse("您好，世界");
+         boolean  b=optional.equals("hahah");
+        System.out.println(b);
+
+        String str=optional.orElse("您好，世界");
+        System.out.println(str);
 
         optional.ifPresent(s-> System.out.println(s.length()));
     }
