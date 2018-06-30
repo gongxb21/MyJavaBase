@@ -21,6 +21,7 @@ public class MyLocalTime {
         Clock clock=Clock.systemDefaultZone();
         long t0=clock.millis();
         System.out.println(t0);
+        System.out.println(System.currentTimeMillis());
 
         Instant instant=clock.instant();
         Date date=Date.from(instant);
