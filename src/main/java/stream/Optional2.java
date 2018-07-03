@@ -1,5 +1,7 @@
 package stream;
 
+import org.junit.Test;
+
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -35,7 +37,8 @@ public class Optional2 {
         }
     }
 
-    public static void test1() {
+    @Test
+    public  void test1() {
         Optional.of(new Outer())
                 .flatMap(o -> Optional.ofNullable(o.nested))
                 .flatMap(n -> Optional.ofNullable(n.inner))
@@ -43,8 +46,8 @@ public class Optional2 {
                 .ifPresent(s -> System.out.println(s));
     }
 
-
-    public static void test2() {
+    @Test
+    public  void test2() {
         Optional.of(new Outer())
                 .map(Outer::getNested)
                 .map(Nested::getInner)
@@ -52,7 +55,8 @@ public class Optional2 {
                 .ifPresent(System.out::println);
     }
 
-    public static void test3() {
+    @Test
+    public  void test3() {
         Outer out = new Outer();
         resolve(() -> out.getNested().getInner().getStr())
                 .ifPresent(System.out::println);
@@ -68,10 +72,6 @@ public class Optional2 {
         }
     }
 
-    public static void main(String[] args) {
-        test1();
-        test2();
-        test3();
-    }
+
 
 }
