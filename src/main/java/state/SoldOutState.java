@@ -1,11 +1,14 @@
 package state;
 
+import lombok.ToString;
+
 /**
  * @author gongxb
  * @date 2018/7/16
  * @desc
  * @return
  */
+@ToString
 public class SoldOutState implements State {
     private Machine machine;
 

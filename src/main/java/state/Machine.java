@@ -1,11 +1,18 @@
 package state;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * @author gongxb
  * @date 2018/7/16
  * @desc
  * @return
  */
+@Getter
+@Setter
+@ToString
 public class Machine {
 
     private State soldOutState;

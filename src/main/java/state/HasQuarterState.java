@@ -1,12 +1,15 @@
 package state;
 
 
+import lombok.ToString;
+
 /**
  * @author gongxb
  * @date 2018/7/16
  * @desc
  * @return
  */
+@ToString
 public class HasQuarterState implements State {
     Machine machine;
 

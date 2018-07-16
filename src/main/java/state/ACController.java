@@ -1,5 +1,6 @@
 package state;
 
+import lombok.ToString;
 import org.junit.Test;
 
 /**
@@ -8,6 +9,7 @@ import org.junit.Test;
  * @desc 空调的控制器
  * @return
  */
+@ToString
 public class ACController {
     private int  state=0;
 
