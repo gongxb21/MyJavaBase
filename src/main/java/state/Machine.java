@@ -12,7 +12,6 @@ import lombok.ToString;
  */
 @Getter
 @Setter
-@ToString
 public class Machine {
 
     private State soldOutState;
@@ -54,34 +53,6 @@ public class Machine {
     public void turnCrank() {
         state.turnCrank();
         state.dispense();
-    }
-
-    public State getSoldOutState() {
-        return soldOutState;
-    }
-
-    public State getNoQuarterState() {
-        return noQuarterState;
-    }
-
-    public State getHasQuarterState() {
-        return hasQuarterState;
-    }
-
-    public State getSoldState() {
-        return soldState;
-    }
-
-    public State getState() {
-        return state;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setState(State state) {
-        this.state = state;
     }
 }
 
