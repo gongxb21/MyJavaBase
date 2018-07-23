@@ -12,37 +12,37 @@ import java.util.concurrent.TimeUnit;
  * @return
  */
 public class Stream2 {
-    public static  final int MAX=1000;
+    public static final int MAX = 1000;
 
-    public static  void sortSequential(){
-        List<String> list=new ArrayList<>(MAX);
-        for(int i=0;i<MAX;i++){
-            UUID uuid=UUID.randomUUID();
+    public static void sortSequential() {
+        List<String> list = new ArrayList<>(MAX);
+        for (int i = 0; i < MAX; i++) {
+            UUID uuid = UUID.randomUUID();
             list.add(uuid.toString());
         }
 
-        long t0=System.nanoTime();
-        long count=list.stream().sorted().count();
-        System.out.println("count="+count);
+        long t0 = System.nanoTime();
+        long count = list.stream().sorted().count();
+        System.out.println("count=" + count);
 
-        long t1=System.nanoTime();
-        long millis= TimeUnit.NANOSECONDS.toMillis(t1-t0);
+        long t1 = System.nanoTime();
+        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
         System.out.println(String.format("sequential sort took: %d ms", millis));
     }
 
-    public static  void sortParallel(){
-        List<String> list=new ArrayList<>(MAX);
-        for(int i=0;i<MAX;i++){
-            UUID uuid=UUID.randomUUID();
+    public static void sortParallel() {
+        List<String> list = new ArrayList<>(MAX);
+        for (int i = 0; i < MAX; i++) {
+            UUID uuid = UUID.randomUUID();
             list.add(uuid.toString());
         }
 
-        long t0=System.nanoTime();
-        long count=list.parallelStream().sorted().count();
-        System.out.println("count="+count);
+        long t0 = System.nanoTime();
+        long count = list.parallelStream().sorted().count();
+        System.out.println("count=" + count);
 
-        long t1=System.nanoTime();
-        long millis= TimeUnit.NANOSECONDS.toMillis(t1-t0);
+        long t1 = System.nanoTime();
+        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
         System.out.println(String.format("parallel sort took: %d ms", millis));
     }
 

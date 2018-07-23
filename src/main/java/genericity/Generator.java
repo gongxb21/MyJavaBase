@@ -10,6 +10,7 @@ public interface Generator<T> {
 
     /**
      * print方法
+     *
      * @param t
      * @return
      */

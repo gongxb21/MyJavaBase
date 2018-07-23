@@ -8,20 +8,20 @@ import java.net.URL;
 
 /**
  * @author gongxb
- *
- * 2018Äê1ÔÂ27ÈÕ
+ * <p>
+ * 2018ï¿½ï¿½1ï¿½ï¿½27ï¿½ï¿½
  */
 public class UrlTest {
-	public static void main(String[] args) throws IOException {
-			URL url=new URL("https://www.baidu.com/");
-			InputStream in=url.openStream();
-			BufferedReader br=new BufferedReader(new InputStreamReader(in,"utf-8"));
-			String str=br.readLine();
-			while(str!=null) {
-				System.out.println(str);
-				str=br.readLine();
-			}
-			br.close();
-			in.close();
-	}
+    public static void main(String[] args) throws IOException {
+        URL url = new URL("https://www.baidu.com/");
+        InputStream in = url.openStream();
+        BufferedReader br = new BufferedReader(new InputStreamReader(in, "utf-8"));
+        String str = br.readLine();
+        while (str != null) {
+            System.out.println(str);
+            str = br.readLine();
+        }
+        br.close();
+        in.close();
+    }
 }

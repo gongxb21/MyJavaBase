@@ -17,13 +17,12 @@ public class TcpClient {
 
     private Selector selector;
     SocketChannel channel;
-    private  String hostIp;
+    private String hostIp;
     /**
      * 要连接的远程服务器在监听的端口
      */
 
     private int port;
-
 
 
     public TcpClient(String hostIp, int port) throws IOException {
@@ -34,12 +33,13 @@ public class TcpClient {
 
     /**
      * 初始化函数
+     *
      * @throws IOException
      */
     public void init() throws IOException {
-        channel=SocketChannel.open(new InetSocketAddress(hostIp, port));
+        channel = SocketChannel.open(new InetSocketAddress(hostIp, port));
         channel.configureBlocking(false);
-        selector=Selector.open();
+        selector = Selector.open();
         channel.register(selector, SelectionKey.OP_WRITE);
         //启动读取线程
         new TcpClientReadThread(selector);
@@ -47,23 +47,24 @@ public class TcpClient {
 
     /**
      * 发送消息
+     *
      * @param msg
      * @throws IOException
      */
     public void sendMsg(String msg) throws IOException {
-        ByteBuffer buffer= ByteBuffer.wrap(msg.getBytes("UTF-16"));
+        ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes("UTF-16"));
 
-        int r= channel.write(buffer);
+        int r = channel.write(buffer);
 
-        System.out.println("write return ="+r);
+        System.out.println("write return =" + r);
 
     }
 
     public static void main(String[] args) throws IOException {
-        TcpClient client=new TcpClient("127.0.0.1",2260);
+        TcpClient client = new TcpClient("127.0.0.1", 2260);
         int maxSize = 10;
-        for(int i = 0; i< maxSize; i++){
-            client.sendMsg("nio"+i+"hellowrold");
+        for (int i = 0; i < maxSize; i++) {
+            client.sendMsg("nio" + i + "hellowrold");
         }
     }
 }

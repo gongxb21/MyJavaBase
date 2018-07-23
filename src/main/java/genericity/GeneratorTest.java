@@ -14,13 +14,13 @@ public class GeneratorTest {
     StringGenerator sg;
 
     @Before
-    public void init(){
-         ng=new NumGenerator();
-         sg=new StringGenerator();
+    public void init() {
+        ng = new NumGenerator();
+        sg = new StringGenerator();
     }
 
     @Test
-    public void testPrint(){
+    public void testPrint() {
         ng.print(123);
         sg.print("helloWorld");
     }

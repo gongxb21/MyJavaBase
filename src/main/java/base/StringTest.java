@@ -1,27 +1,25 @@
 package base;
-import java.util.Observer;
+
 /**
- * 
  * @author gongxb
- * 2017Äê12ÔÂ3ÈÕ
+ * 2017ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½
  */
 public class StringTest {
-	public static void main(String[] args) {
-		//intern();
-		format();
-	}
+    public static void main(String[] args) {
+        //intern();
+        format();
+    }
 
-	/**
-	 * 
-	 * void
-	 */
-	private static void intern() {
-		String s="helloworld";
-		// intern ·½·¨
-		System.out.println(s.intern());
-	}
-	
-	public static void format() {
-		System.out.println(String.format("¼Û¸ñ%dÔª", 10));
-	}
+    /**
+     * void
+     */
+    private static void intern() {
+        String s = "helloworld";
+        // intern ï¿½ï¿½ï¿½ï¿½
+        System.out.println(s.intern());
+    }
+
+    public static void format() {
+        System.out.println(String.format("ï¿½Û¸ï¿½%dÔª", 10));
+    }
 }

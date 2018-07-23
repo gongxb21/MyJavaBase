@@ -4,42 +4,41 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 
 /**
  * @author gongxb
- *
- * 2018Äê1ÔÂ27ÈÕ
+ * <p>
+ * 2018ï¿½ï¿½1ï¿½ï¿½27ï¿½ï¿½
  */
 public class ToUpperUDPClient {
-	private DatagramSocket clientSocket;
-	
-	public void startClient(String ip,int port,String msg) throws IOException {
-		try {
-			while(true) {
-				clientSocket=new DatagramSocket();
-				InetAddress serverAddr=InetAddress.getByName(ip);
-				byte[] sendBytes=msg.getBytes();
-				DatagramPacket sendPack=new DatagramPacket(sendBytes, sendBytes.length,serverAddr,port);
-				//·¢ËÍÊý¾Ý
-				clientSocket.send(sendPack);
-				
-				byte[] recvByte=new byte[ToUpperUDPServer.MAX_SIZE];
-				DatagramPacket recvPack=new DatagramPacket(recvByte, recvByte.length);
-				//½ÓÊÕ´Ó·þÎñ¶ËµÄÏìÓ¦
-				clientSocket.receive(recvPack);
-				String recvString=new String(recvByte, 0, recvByte.length);
-				System.out.println("the messgae client recvive is "+recvString);
-				
-			}
-		}finally {
-			clientSocket.close();
-			clientSocket=null;
-		}
-	}
-	public static void main(String[] args) throws IOException {
-		ToUpperUDPClient client=new ToUpperUDPClient();
-		client.startClient(ToUpperUDPServer.SERVER_IP, ToUpperUDPServer.SERVER_PORT, "hahahahahahSSS");
-	}
+    private DatagramSocket clientSocket;
+
+    public void startClient(String ip, int port, String msg) throws IOException {
+        try {
+            while (true) {
+                clientSocket = new DatagramSocket();
+                InetAddress serverAddr = InetAddress.getByName(ip);
+                byte[] sendBytes = msg.getBytes();
+                DatagramPacket sendPack = new DatagramPacket(sendBytes, sendBytes.length, serverAddr, port);
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                clientSocket.send(sendPack);
+
+                byte[] recvByte = new byte[ToUpperUDPServer.MAX_SIZE];
+                DatagramPacket recvPack = new DatagramPacket(recvByte, recvByte.length);
+                //ï¿½ï¿½ï¿½Õ´Ó·ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ó¦
+                clientSocket.receive(recvPack);
+                String recvString = new String(recvByte, 0, recvByte.length);
+                System.out.println("the messgae client recvive is " + recvString);
+
+            }
+        } finally {
+            clientSocket.close();
+            clientSocket = null;
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        ToUpperUDPClient client = new ToUpperUDPClient();
+        client.startClient(ToUpperUDPServer.SERVER_IP, ToUpperUDPServer.SERVER_PORT, "hahahahahahSSS");
+    }
 }

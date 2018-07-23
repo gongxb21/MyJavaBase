@@ -10,24 +10,27 @@ public class LambdaTest {
     /*   (params) -> expression
          (params) -> statement
          (params) -> { statements }*/
-    static  String aaa="aaa";
-    final static  String bbb="bbb";
+    static String aaa = "aaa";
+    final static String bbb = "bbb";
+
     public static void main(String[] args) {
-        LambdaTest tt=new LambdaTest();
-        MathOperation add=(int a,int b)->a+b;
-        MathOperation sub=(a, b)->a-b;
-        MathOperation multi=(a, b) ->{ return a*b;};
-        MathOperation div=(a, b)->a/b;
+        LambdaTest tt = new LambdaTest();
+        MathOperation add = (int a, int b) -> a + b;
+        MathOperation sub = (a, b) -> a - b;
+        MathOperation multi = (a, b) -> {
+            return a * b;
+        };
+        MathOperation div = (a, b) -> a / b;
         System.out.println("10 + 5 = " + tt.operate(10, 5, add));
         System.out.println("10 - 5 = " + tt.operate(10, 5, sub));
         System.out.println("10 x 5 = " + tt.operate(10, 5, multi));
         System.out.println("10 / 5 = " + tt.operate(10, 5, div));
 
-        GreetingService greeting =(name)-> System.out.println("helloworld"+name);
-        GreetingService greeting2 =name-> System.out.println("helloworld"+name);
+        GreetingService greeting = (name) -> System.out.println("helloworld" + name);
+        GreetingService greeting2 = name -> System.out.println("helloworld" + name);
 
-        GreetingService greeting3=(name)-> System.out.println(aaa+name);
-        GreetingService greeting4=(name)-> System.out.println(bbb+name);
+        GreetingService greeting3 = (name) -> System.out.println(aaa + name);
+        GreetingService greeting4 = (name) -> System.out.println(bbb + name);
 
         greeting.sayMessage("hahaah");
         greeting2.sayMessage("gongxb");

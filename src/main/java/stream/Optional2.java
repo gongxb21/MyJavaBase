@@ -38,7 +38,7 @@ public class Optional2 {
     }
 
     @Test
-    public  void test1() {
+    public void test1() {
         Optional.of(new Outer())
                 .flatMap(o -> Optional.ofNullable(o.nested))
                 .flatMap(n -> Optional.ofNullable(n.inner))
@@ -47,7 +47,7 @@ public class Optional2 {
     }
 
     @Test
-    public  void test2() {
+    public void test2() {
         Optional.of(new Outer())
                 .map(Outer::getNested)
                 .map(Nested::getInner)
@@ -56,7 +56,7 @@ public class Optional2 {
     }
 
     @Test
-    public  void test3() {
+    public void test3() {
         Outer out = new Outer();
         resolve(() -> out.getNested().getInner().getStr())
                 .ifPresent(System.out::println);
@@ -71,7 +71,6 @@ public class Optional2 {
             return Optional.empty();
         }
     }
-
 
 
 }

@@ -12,8 +12,8 @@ import lombok.ToString;
 public class SoldOutState implements State {
     private Machine machine;
 
-    public SoldOutState(Machine machine){
-        this.machine=machine;
+    public SoldOutState(Machine machine) {
+        this.machine = machine;
     }
 
     @Override

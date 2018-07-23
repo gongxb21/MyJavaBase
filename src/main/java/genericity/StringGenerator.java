@@ -10,7 +10,7 @@ public class StringGenerator implements Generator<String> {
 
     @Override
     public String print(String s) {
-        System.out.println("StringGenerator.print ="+s);
+        System.out.println("StringGenerator.print =" + s);
         return s;
     }
 }

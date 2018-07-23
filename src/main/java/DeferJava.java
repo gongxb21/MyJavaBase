@@ -7,12 +7,13 @@ import java.util.Stack;
  * @return
  */
 public class DeferJava {
-    public static Stack<Object> stack=new Stack();
+    public static Stack<Object> stack = new Stack();
+
     public static void defer(Object obj) {
         stack.push(obj);
     }
 
-    public static void doDefer(){
+    public static void doDefer() {
         while (!stack.empty()) {
             System.out.println(stack.pop());
         }
@@ -35,7 +36,7 @@ public class DeferJava {
 
 
             defer("end");
-        }finally {
+        } finally {
             doDefer();
         }
 

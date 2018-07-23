@@ -6,54 +6,55 @@ import java.net.InetAddress;
 
 /**
  * @author gongxb
- *
- * 2018Äê1ÔÂ27ÈÕ
+ * <p>
+ * 2018ï¿½ï¿½1ï¿½ï¿½27ï¿½ï¿½
  */
 public class ToUpperUDPServer {
-	public static final String SERVER_IP="127.0.0.1";
-	public static final int SERVER_PORT=6666;
-	//Ã¿´Î´¦ÀíµÄ×î´ó³¤¶È
-	public static final int MAX_SIZE=1024;
-	
-	private DatagramSocket serverSocket;
-	
-	public void startServer(String ip,int port) {
-		try {
-			InetAddress serverAddr=InetAddress.getByName(ip);
-			serverSocket=new DatagramSocket(port, serverAddr);
-			byte[] recvByte=new byte[MAX_SIZE];
-			
-			DatagramPacket recvPack=new DatagramPacket(recvByte, recvByte.length);
-			//ËÀÑ­»·£¬Ò»Ö±ÔËÐÐ
-			while(true) {
-				serverSocket.receive(recvPack);
-				
-				String receString=new String(recvByte,0,recvByte.length);
-				System.out.println("server recevie the message ,the message is"+receString);
-				
-				//µÃµ½¿Í»§¶ËµÄIPºÍ¶Ë¿ÚºÅ
-				InetAddress clientAddr=recvPack.getAddress();
-				int clientPort=recvPack.getPort();
-				
-				String upperString=receString.toUpperCase();
-				byte[] sendBytes = upperString.getBytes();
-				DatagramPacket sendPack=new DatagramPacket(sendBytes,sendBytes.length,clientAddr,clientPort);
-				
-				serverSocket.send(sendPack);
-			}
-			
-		}catch (Exception e) {
-			System.out.println("catch a exception"+e.getMessage());
-		}finally {  
-            //¼ÇµÃ¹Ø±ÕSocket  
-            if (null != serverSocket) {  
-                serverSocket.close();  
-                serverSocket = null;  
-            }  
-        }  
-	}
-	public static void main(String[] args) {
-		ToUpperUDPServer server=new ToUpperUDPServer();
-		server.startServer(SERVER_IP, SERVER_PORT);
-	}
+    public static final String SERVER_IP = "127.0.0.1";
+    public static final int SERVER_PORT = 6666;
+    //Ã¿ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó³¤¶ï¿½
+    public static final int MAX_SIZE = 1024;
+
+    private DatagramSocket serverSocket;
+
+    public void startServer(String ip, int port) {
+        try {
+            InetAddress serverAddr = InetAddress.getByName(ip);
+            serverSocket = new DatagramSocket(port, serverAddr);
+            byte[] recvByte = new byte[MAX_SIZE];
+
+            DatagramPacket recvPack = new DatagramPacket(recvByte, recvByte.length);
+            //ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½Ò»Ö±ï¿½ï¿½ï¿½ï¿½
+            while (true) {
+                serverSocket.receive(recvPack);
+
+                String receString = new String(recvByte, 0, recvByte.length);
+                System.out.println("server recevie the message ,the message is" + receString);
+
+                //ï¿½Ãµï¿½ï¿½Í»ï¿½ï¿½Ëµï¿½IPï¿½Í¶Ë¿Úºï¿½
+                InetAddress clientAddr = recvPack.getAddress();
+                int clientPort = recvPack.getPort();
+
+                String upperString = receString.toUpperCase();
+                byte[] sendBytes = upperString.getBytes();
+                DatagramPacket sendPack = new DatagramPacket(sendBytes, sendBytes.length, clientAddr, clientPort);
+
+                serverSocket.send(sendPack);
+            }
+
+        } catch (Exception e) {
+            System.out.println("catch a exception" + e.getMessage());
+        } finally {
+            //ï¿½ÇµÃ¹Ø±ï¿½Socket  
+            if (null != serverSocket) {
+                serverSocket.close();
+                serverSocket = null;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        ToUpperUDPServer server = new ToUpperUDPServer();
+        server.startServer(SERVER_IP, SERVER_PORT);
+    }
 }

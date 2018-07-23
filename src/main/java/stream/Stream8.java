@@ -1,10 +1,7 @@
 package stream;
 
-import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.notification.StoppedByUserException;
-import reflection.Person;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -3,69 +3,71 @@ package algorithm;
 import java.util.Arrays;
 
 /**
- * ¹é²¢ÅÅĞòËã·¨
+ * ï¿½é²¢ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨
+ *
  * @author gongxb
- * @date 2017-9-26  ĞÂ½¨
- * Õâ¸öËã·¨ÓĞÁ½µãÊÇ¿ÉÒÔÓÅ»¯µÄ
- * 1¡¢ÔÚ¹é²¢Ö®Ç°ÅĞ¶Ïarr[mid]<arr[mid+1],¶ÔÓÚÇ÷ÓÚÓĞĞòµÄĞòÁĞÓĞ½Ï´óµÄÌá¸ß
- * 2¡¢ËùÓĞµÄ¸ß¼¶Ëã·¨£¬¶¼¿ÉÒÔÔÚÒ»¶¨µÄÊ±ºò£¨Ç÷ÓÚÓĞĞò£©ÒıÈë²åÈëÅÅĞò
- * 
- * 
- * 
+ * @date 2017-9-26  ï¿½Â½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½
+ * 1ï¿½ï¿½ï¿½Ú¹é²¢Ö®Ç°ï¿½Ğ¶ï¿½arr[mid]<arr[mid+1],ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 2ï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄ¸ß¼ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class MergeSort {
-	private static int[] genernateArrays(int size,int range){
-		int[] arr=new int[size];
-		for(int i=0;i<size;i++){
-			arr[i]=(int)Math.floor(Math.random()*range)+1;
-		}
-		return arr;
-	}
-	
-	private static void printArray(int[] arr){
-		for(int i: arr){
-			System.out.print(i+"   ");
-		}
-	}
-	public static void main(String[] args) {
-		int[] arr=genernateArrays(10, 10);
-		printArray(arr);
-		System.out.println();
-		sort(arr, 0, arr.length-1);
-		
-	}
-	// µİ¹éÊ¹ÓÃ¹é²¢ÅÅĞò,¶Ôarr[l...r]µÄ·¶Î§½øĞĞÅÅĞò
+    private static int[] genernateArrays(int size, int range) {
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = (int) Math.floor(Math.random() * range) + 1;
+        }
+        return arr;
+    }
+
+    private static void printArray(int[] arr) {
+        for (int i : arr) {
+            System.out.print(i + "   ");
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = genernateArrays(10, 10);
+        printArray(arr);
+        System.out.println();
+        sort(arr, 0, arr.length - 1);
+
+    }
+
+    // ï¿½İ¹ï¿½Ê¹ï¿½Ã¹é²¢ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½arr[l...r]ï¿½Ä·ï¿½Î§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private static void sort(int[] arr, int l, int r) {
 
         if (l >= r) {
-        	
-        	return;
+
+            return;
         }
 
-        int mid = (l+r)/2;
+        int mid = (l + r) / 2;
         sort(arr, l, mid);
         sort(arr, mid + 1, r);
         merge(arr, l, mid, r);
-    } 
+    }
+
     private static void merge(int[] arr, int l, int mid, int r) {
 
-        int[] aux = Arrays.copyOfRange(arr, l, r+1);
+        int[] aux = Arrays.copyOfRange(arr, l, r + 1);
 
-        // ³õÊ¼»¯£¬iÖ¸Ïò×ó°ë²¿·ÖµÄÆğÊ¼Ë÷ÒıÎ»ÖÃl£»jÖ¸ÏòÓÒ°ë²¿·ÖÆğÊ¼Ë÷ÒıÎ»ÖÃmid+1
-        int i = l, j = mid+1;
-        for( int k = l ; k <= r; k ++ ){
+        // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½iÖ¸ï¿½ï¿½ï¿½ï¿½ë²¿ï¿½Öµï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½lï¿½ï¿½jÖ¸ï¿½ï¿½ï¿½Ò°ë²¿ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½mid+1
+        int i = l, j = mid + 1;
+        for (int k = l; k <= r; k++) {
 
-            if( i > mid ){  // Èç¹û×ó°ë²¿·ÖÔªËØÒÑ¾­È«²¿´¦ÀíÍê±Ï
-                arr[k] = aux[j-l]; j ++;
-            }
-            else if( j > r ){   // Èç¹ûÓÒ°ë²¿·ÖÔªËØÒÑ¾­È«²¿´¦ÀíÍê±Ï
-                arr[k] = aux[i-l]; i ++;
-            }
-            else if( aux[i-l]<(aux[j-l])  ){  // ×ó°ë²¿·ÖËùÖ¸ÔªËØ < ÓÒ°ë²¿·ÖËùÖ¸ÔªËØ
-                arr[k] = aux[i-l]; i ++;
-            }
-            else{  // ×ó°ë²¿·ÖËùÖ¸ÔªËØ >= ÓÒ°ë²¿·ÖËùÖ¸ÔªËØ
-                arr[k] = aux[j-l]; j ++;
+            if (i > mid) {  // ï¿½ï¿½ï¿½ï¿½ï¿½ë²¿ï¿½ï¿½Ôªï¿½ï¿½ï¿½Ñ¾ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                arr[k] = aux[j - l];
+                j++;
+            } else if (j > r) {   // ï¿½ï¿½ï¿½ï¿½Ò°ë²¿ï¿½ï¿½Ôªï¿½ï¿½ï¿½Ñ¾ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                arr[k] = aux[i - l];
+                i++;
+            } else if (aux[i - l] < (aux[j - l])) {  // ï¿½ï¿½ë²¿ï¿½ï¿½ï¿½ï¿½Ö¸Ôªï¿½ï¿½ < ï¿½Ò°ë²¿ï¿½ï¿½ï¿½ï¿½Ö¸Ôªï¿½ï¿½
+                arr[k] = aux[i - l];
+                i++;
+            } else {  // ï¿½ï¿½ë²¿ï¿½ï¿½ï¿½ï¿½Ö¸Ôªï¿½ï¿½ >= ï¿½Ò°ë²¿ï¿½ï¿½ï¿½ï¿½Ö¸Ôªï¿½ï¿½
+                arr[k] = aux[j - l];
+                j++;
             }
         }
         printArray(arr);

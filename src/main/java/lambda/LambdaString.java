@@ -1,6 +1,5 @@
 package lambda;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import org.junit.Test;
 
 import java.util.Arrays;

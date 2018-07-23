@@ -24,26 +24,26 @@ public class TcpProtocolImpl implements TcpProtocol {
 
     @Override
     public void handleAccept(SelectionKey key) throws IOException {
-        SocketChannel channel=((ServerSocketChannel)key.channel()).accept();
+        SocketChannel channel = ((ServerSocketChannel) key.channel()).accept();
         channel.configureBlocking(
                 false);
-        channel.register(key.selector(),SelectionKey.OP_READ, ByteBuffer.allocate(bufferSize));
+        channel.register(key.selector(), SelectionKey.OP_READ, ByteBuffer.allocate(bufferSize));
     }
 
     @Override
     public void handleRead(SelectionKey key) throws IOException {
-        SocketChannel channel=(SocketChannel)key.channel();
-        ByteBuffer buffer=(ByteBuffer)key.attachment();
+        SocketChannel channel = (SocketChannel) key.channel();
+        ByteBuffer buffer = (ByteBuffer) key.attachment();
         buffer.clear();
 
-        long byteRead =channel.read(buffer);
-        if(byteRead==-1){
+        long byteRead = channel.read(buffer);
+        if (byteRead == -1) {
             System.out.println("===没有读取到任何东西====");
             channel.close();
-        }else{
+        } else {
             //将缓冲区准备为数据传出状态
             buffer.flip();
-            String recString= Charset.forName("UTF-16").newDecoder().decode(buffer).toString();
+            String recString = Charset.forName("UTF-16").newDecoder().decode(buffer).toString();
             System.out.println("接收到来自" + channel.socket().getRemoteSocketAddress() + "的信息:" + recString);
 
 
@@ -52,11 +52,11 @@ public class TcpProtocolImpl implements TcpProtocol {
             // 准备发送的文本
             String sendString = "你好,客户端. @" + f + "，已经收到你的信息:" + recString;
 
-            buffer=ByteBuffer.wrap(sendString.getBytes("UTF-16"));
+            buffer = ByteBuffer.wrap(sendString.getBytes("UTF-16"));
             channel.write(buffer);
 
             //设置为下一次读取或者是写入做准备
-            key.interestOps(SelectionKey.OP_READ|SelectionKey.OP_WRITE);
+            key.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
 
         }
 

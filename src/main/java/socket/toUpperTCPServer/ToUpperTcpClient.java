@@ -10,65 +10,66 @@ import java.util.TimerTask;
 
 /**
  * @author gongxb
- *
- *         2018Äê1ÔÂ27ÈÕ
+ * <p>
+ * 2018ï¿½ï¿½1ï¿½ï¿½27ï¿½ï¿½
  */
 public class ToUpperTcpClient {
-	private Socket clientSocket;
+    private Socket clientSocket;
 
-	public void startClient(String ip, int port, String msg) throws IOException, InterruptedException {
-		while (true) {
-			Thread.sleep(500);
-			try {
-				//System.out.println("client send msg :"+msg);
-				clientSocket = new Socket(ip, port);
-				StringBuilder builder = new StringBuilder();
-				OutputStream output = clientSocket.getOutputStream();
-				output.write(msg.getBytes());
-				output.flush();
-				InputStream input = clientSocket.getInputStream();
-				for (int c = input.read(); c != '*'; c = input.read()) {
-					builder.append((char) c);
-				}
-				System.out.println("client get  String " + builder.toString()+ ":"+new Date().toLocaleString());
-				this.sendHeartBeatPack();
-			} catch (Exception e) {
-				System.out.println("catch a exception " + e.getMessage());
-			} finally {
-				if (clientSocket != null) {
-					clientSocket.close();
-				}
-			}
-		}
+    public void startClient(String ip, int port, String msg) throws IOException, InterruptedException {
+        while (true) {
+            Thread.sleep(500);
+            try {
+                //System.out.println("client send msg :"+msg);
+                clientSocket = new Socket(ip, port);
+                StringBuilder builder = new StringBuilder();
+                OutputStream output = clientSocket.getOutputStream();
+                output.write(msg.getBytes());
+                output.flush();
+                InputStream input = clientSocket.getInputStream();
+                for (int c = input.read(); c != '*'; c = input.read()) {
+                    builder.append((char) c);
+                }
+                System.out.println("client get  String " + builder.toString() + ":" + new Date().toLocaleString());
+                this.sendHeartBeatPack();
+            } catch (Exception e) {
+                System.out.println("catch a exception " + e.getMessage());
+            } finally {
+                if (clientSocket != null) {
+                    clientSocket.close();
+                }
+            }
+        }
 
-	}
-	/**
-	 * send hreart beat package
-	 * 
-	 * void
-	 */
-	public void sendHeartBeatPack() {
-		Timer heartBeater=new Timer();
-		TimerTask beat=new TimerTask() {
-			@Override
-			public void run() {
-				ToUpperTcpClient client = new ToUpperTcpClient();
-				try {
-					System.out.println("send a heartBeatPackage"+new Date().toLocaleString());
-					//client.startClient(ToUpperTcpServer.SERVER_IP, ToUpperTcpServer.SERVER_PORT, "this is heartBeatPack*");
-				} catch (Exception e) {
-					e.printStackTrace();
-				} 
-			}
-		};
-		
-		heartBeater.schedule(beat,1000,1000);
-	}
+    }
 
-	public static void main(String[] args) throws IOException, InterruptedException {
-		ToUpperTcpClient client = new ToUpperTcpClient();
-		client.startClient(ToUpperTcpServer.SERVER_IP, ToUpperTcpServer.SERVER_PORT, "qwertyadfsd*");
-		//²»ÄÜ°ÑÐÄÌø°üƒÈÈÝ·ÅÔÚÏÂÃæ£¬ÒòžéÉÏÃæËÀÑ­­h
-		//client.sendHeartBeatPack();
-	}
+    /**
+     * send hreart beat package
+     * <p>
+     * void
+     */
+    public void sendHeartBeatPack() {
+        Timer heartBeater = new Timer();
+        TimerTask beat = new TimerTask() {
+            @Override
+            public void run() {
+                ToUpperTcpClient client = new ToUpperTcpClient();
+                try {
+                    System.out.println("send a heartBeatPackage" + new Date().toLocaleString());
+                    //client.startClient(ToUpperTcpServer.SERVER_IP, ToUpperTcpServer.SERVER_PORT, "this is heartBeatPack*");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        heartBeater.schedule(beat, 1000, 1000);
+    }
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        ToUpperTcpClient client = new ToUpperTcpClient();
+        client.startClient(ToUpperTcpServer.SERVER_IP, ToUpperTcpServer.SERVER_PORT, "qwertyadfsd*");
+        //ï¿½ï¿½ï¿½Ü°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½h
+        //client.sendHeartBeatPack();
+    }
 }

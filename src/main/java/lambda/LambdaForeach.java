@@ -1,6 +1,5 @@
 package lambda;
 
-import com.sun.org.apache.xml.internal.security.Init;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,18 +13,18 @@ import java.util.*;
  */
 public class LambdaForeach {
 
-    List<String> list=new ArrayList();
-    Map<String,String> map=new HashMap<String,String>();
-    Set<String> set=new HashSet();
+    List<String> list = new ArrayList();
+    Map<String, String> map = new HashMap<String, String>();
+    Set<String> set = new HashSet();
 
     @Before
-    public void init(){
+    public void init() {
         initSet();
         initList();
         initMap();
     }
 
-    public void initList(){
+    public void initList() {
         list.add("apple");
         list.add("banana");
         list.add("peach");
@@ -34,26 +33,26 @@ public class LambdaForeach {
 
     }
 
-    public void initMap(){
-        map.put("1","apple");
-        map.put("2","banana");
-        map.put("3","peach");
+    public void initMap() {
+        map.put("1", "apple");
+        map.put("2", "banana");
+        map.put("3", "peach");
     }
 
-    public void initSet(){
+    public void initSet() {
         set.add("apple");
         set.add("banana");
         set.add("peach");
     }
 
     @Test
-   public void testForeach(){
+    public void testForeach() {
 
-        list.forEach(n-> System.out.println(n));
+        list.forEach(n -> System.out.println(n));
         System.out.println("+++++++++++++++++++++");
-        map.forEach((key,value)-> System.out.println(key+":"+value));
+        map.forEach((key, value) -> System.out.println(key + ":" + value));
         System.out.println("+++++++++++++++++++++");
-        set.forEach(n-> System.out.println(n));
-   }
+        set.forEach(n -> System.out.println(n));
+    }
 
 }

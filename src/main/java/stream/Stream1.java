@@ -24,51 +24,51 @@ public class Stream1 {
         list.add("ddd1");
 
         //filter
-        list.stream().filter(s->s.startsWith("d"))
-                .forEach(s-> System.out.println(s));
+        list.stream().filter(s -> s.startsWith("d"))
+                .forEach(s -> System.out.println(s));
         System.out.println("====1====");
 
         //sort
         list.stream().sorted()
-                .forEach(s-> System.out.println(s));
+                .forEach(s -> System.out.println(s));
 
         System.out.println("====2======");
 
         //mapping
         list.stream()
                 .map(String::toUpperCase)
-                .forEach(s-> System.out.println(s));
+                .forEach(s -> System.out.println(s));
 
         System.out.println("=====3=====");
 
         //matching
 
-       boolean anyStartWith= list.stream()
-                .anyMatch(s->s.startsWith("a"));
+        boolean anyStartWith = list.stream()
+                .anyMatch(s -> s.startsWith("a"));
 
         System.out.println(anyStartWith);
 
-        boolean allStartWith=list.stream()
-                .allMatch(s->s.startsWith("a"));
+        boolean allStartWith = list.stream()
+                .allMatch(s -> s.startsWith("a"));
         System.out.println(allStartWith);
 
         //counting
 
-        long  count=list.stream()
-                .filter(s->s.startsWith("d"))
+        long count = list.stream()
+                .filter(s -> s.startsWith("d"))
                 .count();
         System.out.println(count);
         System.out.println("====4=====");
         //reducing
 
-       Optional<String> red= list.stream().sorted()
-                .reduce((s1,s2)->s1+":"+s2);
-       red.ifPresent(System.out::println);
+        Optional<String> red = list.stream().sorted()
+                .reduce((s1, s2) -> s1 + ":" + s2);
+        red.ifPresent(System.out::println);
         System.out.println("====5===");
 
-       list.stream()
-               .sorted()
-               .forEach(System.out::println);
+        list.stream()
+                .sorted()
+                .forEach(System.out::println);
 
     }
 }

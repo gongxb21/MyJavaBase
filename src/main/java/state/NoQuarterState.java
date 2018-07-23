@@ -13,8 +13,8 @@ public class NoQuarterState implements State {
 
     private Machine machine;
 
-    public NoQuarterState(Machine machine){
-        this.machine=machine;
+    public NoQuarterState(Machine machine) {
+        this.machine = machine;
     }
 
     @Override

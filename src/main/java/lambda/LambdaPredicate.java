@@ -1,6 +1,7 @@
 package lambda;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -32,6 +33,7 @@ public class LambdaPredicate {
 
     /**
      * 以流的形式 遍历集合
+     *
      * @param names
      * @param condition
      */
@@ -48,14 +50,12 @@ public class LambdaPredicate {
         System.out.println("========");
         //filterLambda(list,str->str.startWith("a"));
         //不知道为什么这个不好用
-      //  filter(list, (str) -> str.startWith("s"));
-       // filter(list, (str) -> str.endsWith("a"));
+        //  filter(list, (str) -> str.startWith("s"));
+        // filter(list, (str) -> str.endsWith("a"));
         // 甚至可以用and()、or()和xor()逻辑函数来合并Predicate，
 
 
     }
-
-
 
 
 }

@@ -1,4 +1,3 @@
-
 package io;
 
 import java.io.BufferedWriter;
@@ -8,15 +7,15 @@ import java.io.IOException;
 
 /**
  * @author gongxb
- * @date 2018-1-25  ÐÂ½¨ 
+ * @date 2018-1-25  ï¿½Â½ï¿½
  */
 public class MyBufferedWriter {
-	private BufferedWriter bw;
-	
-	public void buffferWriter() throws IOException{
-		bw=new BufferedWriter(new FileWriter(new File("D:/asdf.abc")));
-		bw.write("asdffggggg");
-		bw.flush();
-		bw.close();
-	}
+    private BufferedWriter bw;
+
+    public void buffferWriter() throws IOException {
+        bw = new BufferedWriter(new FileWriter(new File("D:/asdf.abc")));
+        bw.write("asdffggggg");
+        bw.flush();
+        bw.close();
+    }
 }

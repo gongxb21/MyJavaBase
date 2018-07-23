@@ -1,9 +1,7 @@
 package time;
 
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
@@ -14,19 +12,19 @@ import java.util.Date;
  */
 public class MyLocalDateTime {
     public static void main(String[] args) {
-        LocalDateTime dateTime=LocalDateTime.of(2018, Month.MAY,21,23,50,50);
-        DayOfWeek dayOfWeek=dateTime.getDayOfWeek();
+        LocalDateTime dateTime = LocalDateTime.of(2018, Month.MAY, 21, 23, 50, 50);
+        DayOfWeek dayOfWeek = dateTime.getDayOfWeek();
         System.out.println(dayOfWeek);
 
-        Month month=dateTime.getMonth();
+        Month month = dateTime.getMonth();
         System.out.println(month);
 
-        long minuteOfDay=dateTime.getLong(ChronoField.MINUTE_OF_DAY);
+        long minuteOfDay = dateTime.getLong(ChronoField.MINUTE_OF_DAY);
         System.out.println(minuteOfDay);
 
-        Instant instant=dateTime.atZone(ZoneId.systemDefault()).toInstant();
+        Instant instant = dateTime.atZone(ZoneId.systemDefault()).toInstant();
 
-        Date now= Date.from(instant);
+        Date now = Date.from(instant);
 
         System.out.println(now);
 

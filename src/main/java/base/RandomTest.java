@@ -1,38 +1,38 @@
 package base;
 
-import java.util.Random;
-
 import org.junit.Test;
 
+import java.util.Random;
+
 /**
- * ²âÊÔËæ»úÊıÀà
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *
  * @author gongxb
- * 2017Äê12ÔÂ3ÈÕ
+ * 2017ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½
  */
 public class RandomTest {
-	/**
-	 * 
-	 * ²úÉúËæ»úÊı,int ÀàĞÍ
-	 * void
-	 */
-	@Test
-	public void getRandomInt() {
-		double dou=Math.random();
-		System.out.println(dou);
-		int i=(int) Math.floor(dou*10);
-		System.out.println(i);
-	}
-	/**
-	 * 
-	 * ²úÉúËæ»úÊı,int ÀàĞÍ Èç¹ûÊÇ²úÉúËæ»úÕûÊı£¬½¨Òé²ÉÓÃÕâÖÖ·½·¨
-	 * void
-	 */
-	@Test
-	public void getRandomInt2() {
-		System.out.println("getRandomInt2 start");
-		Random ran=new Random();
-		System.out.println(ran.nextInt(10));
-		System.out.println("getRandomInt2 end ");
-	}
-	
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,int ï¿½ï¿½ï¿½ï¿½
+     * void
+     */
+    @Test
+    public void getRandomInt() {
+        double dou = Math.random();
+        System.out.println(dou);
+        int i = (int) Math.floor(dou * 10);
+        System.out.println(i);
+    }
+
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,int ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * void
+     */
+    @Test
+    public void getRandomInt2() {
+        System.out.println("getRandomInt2 start");
+        Random ran = new Random();
+        System.out.println(ran.nextInt(10));
+        System.out.println("getRandomInt2 end ");
+    }
+
 }

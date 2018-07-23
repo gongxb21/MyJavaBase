@@ -10,7 +10,7 @@ public class NumGenerator implements Generator<Integer> {
 
     @Override
     public Integer print(Integer s) {
-        System.out.println("NumGenerator .print="+s);
+        System.out.println("NumGenerator .print=" + s);
         return s;
     }
 
