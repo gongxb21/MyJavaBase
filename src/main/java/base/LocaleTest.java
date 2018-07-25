@@ -21,6 +21,8 @@ public class LocaleTest {
     public void getDefault() {
         loc = Locale.getDefault();
         System.out.println(loc);
+
+        
     }
 
     /**
