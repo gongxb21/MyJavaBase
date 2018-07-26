@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>designpattern.observer</OriginalElement>
+  <nodes>
+    <node x="94.41666666666669" y="0.0">designpattern.observer.Observer</node>
+    <node x="53.90625" y="79.0">designpattern.observer.Observerable</node>
+    <node x="43.50520833333334" y="237.0">designpattern.observer.ObserverTest</node>
+    <node x="109.25" y="158.0">designpattern.observer.WechatServer</node>
+    <node x="0.0" y="158.0">designpattern.observer.User</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="designpattern.observer.Observerable" target="designpattern.observer.Observer">
+      <point x="0.0" y="-14.5" />
+      <point x="118.40625" y="59.0" />
+      <point x="133.41666666666669" y="59.0" />
+      <point x="-13.0" y="14.5" />
+    </edge>
+    <edge source="designpattern.observer.ObserverTest" target="designpattern.observer.User">
+      <point x="-49.125" y="-14.5" />
+      <point x="59.88020833333334" y="217.0" />
+      <point x="19.25" y="217.0" />
+      <point x="-19.25" y="14.5" />
+    </edge>
+    <edge source="designpattern.observer.WechatServer" target="designpattern.observer.Observerable">
+      <point x="-44.66666666666666" y="-14.5" />
+      <point x="131.58333333333334" y="133.0" />
+      <point x="118.40625" y="133.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="designpattern.observer.ObserverTest" target="designpattern.observer.WechatServer">
+      <point x="49.125" y="-14.5" />
+      <point x="158.13020833333334" y="217.0" />
+      <point x="209.75" y="217.0" />
+      <point x="33.5" y="14.5" />
+    </edge>
+    <edge source="designpattern.observer.User" target="designpattern.observer.Observer">
+      <point x="0.0" y="-14.5" />
+      <point x="38.5" y="59.0" />
+      <point x="107.41666666666669" y="59.0" />
+      <point x="-39.0" y="14.5" />
+    </edge>
+    <edge source="designpattern.observer.WechatServer" target="designpattern.observer.Observer">
+      <point x="0.0" y="-14.5" />
+      <point x="176.25" y="133.0" />
+      <point x="193.40625" y="133.0" />
+      <point x="193.40625" y="59.0" />
+      <point x="159.41666666666669" y="59.0" />
+      <point x="13.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9950687231140489" x="148.44701602699297" y="130.180356389709" />
+  <SelectedNodes>
+    <node>designpattern.observer.User</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
