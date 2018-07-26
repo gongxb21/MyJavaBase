@@ -1,4 +1,4 @@
-package state;
+package designpattern.state;
 
 import lombok.ToString;
 import org.junit.Test;
@@ -57,7 +57,7 @@ public class ACController {
     @Test
     public void testState() {
         ACController acController = new ACController();
-        System.out.println("init state=" + acController.getState());
+        System.out.println("init designpattern.state=" + acController.getState());
         acController.cool();
         acController.power();
         acController.cool();

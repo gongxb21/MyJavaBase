@@ -1,4 +1,4 @@
-package state;
+package designpattern.state;
 
 import lombok.ToString;
 

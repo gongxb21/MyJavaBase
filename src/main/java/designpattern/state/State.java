@@ -1,4 +1,4 @@
-package state;
+package designpattern.state;
 
 /**
  * @author gongxb
