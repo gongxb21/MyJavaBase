@@ -1,12 +1,13 @@
 package designpattern.observer;
 
+
 /**
  * @author gongxb
  * @date 2018/7/26
- * @desc
+ * @desc 观察者接口的实现类
  * @return
  */
-public class User implements Observer{
+public class User implements Observer {
     private String name;
 
     public User(String name){
@@ -17,4 +18,5 @@ public class User implements Observer{
     public void update(String msg) {
         System.out.println(this.name+" User get msg:"+msg);
     }
+
 }
