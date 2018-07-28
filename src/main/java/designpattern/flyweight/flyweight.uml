@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>designpattern.flyweight</OriginalElement>
+  <nodes>
+    <node x="55.2361111111111" y="225.0">designpattern.flyweight.CellPhoneFactory</node>
+    <node x="0.0" y="101.0">designpattern.flyweight.NokiaPhone</node>
+    <node x="115.90277777777777" y="0.0">designpattern.flyweight.CellPhone</node>
+    <node x="99.79166666666667" y="348.0">designpattern.flyweight.CellPhoneTest</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="designpattern.flyweight.NokiaPhone" target="designpattern.flyweight.CellPhone">
+      <point x="0.0" y="-37.0" />
+      <point x="96.5" y="76.0" />
+      <point x="137.23611111111111" y="76.0" />
+      <point x="-42.66666666666666" y="25.5" />
+    </edge>
+    <edge source="designpattern.flyweight.CellPhoneFactory" target="designpattern.flyweight.CellPhone">
+      <point x="87.0" y="-36.5" />
+      <point x="272.7361111111111" y="200.0" />
+      <point x="214.5" y="200.0" />
+      <point x="214.5" y="76.0" />
+      <point x="222.56944444444443" y="76.0" />
+      <point x="42.66666666666666" y="25.5" />
+    </edge>
+    <edge source="designpattern.flyweight.CellPhoneTest" target="designpattern.flyweight.CellPhoneFactory">
+      <point x="35.0" y="-47.5" />
+      <point x="204.79166666666669" y="323.0" />
+      <point x="250.9861111111111" y="323.0" />
+      <point x="65.25" y="36.5" />
+    </edge>
+    <edge source="designpattern.flyweight.CellPhoneFactory" target="designpattern.flyweight.NokiaPhone">
+      <point x="-87.0" y="-36.5" />
+      <point x="98.7361111111111" y="200.0" />
+      <point x="96.5" y="200.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="77.5" y="226.5" />
+  <SelectedNodes>
+    <node>designpattern.flyweight.CellPhoneFactory</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
